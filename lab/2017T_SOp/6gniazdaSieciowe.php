@@ -61,7 +61,7 @@ echo $geshi->parseCode();
 <p>
 W celu napisania serwera TCP należy:
 <ol>
- <li>Utworyzć gniazdo sieciowe</li>
+ <li>Utworzyć gniazdo sieciowe</li>
  <li>Przypisać do gniazda sieciowego adres</li>
  <li>Rozpocząć nasłuchiwanie</li>
  <li>Zaakceptować połączenie (zostanie utworzone nowe gniazdo)</li>
@@ -240,7 +240,7 @@ Funkcja ssize_t send(int sockfd, const void *buf, size_t len, int flags) zwraca 
 </ol>
 </p>
 <p>
-Odbieranie wiadomości jest analogiczne. Służy do tego funkcja <i>ssize_t recvmsg(int sockfd, struct msghdr *msg, int flags);</i>  Neleży wcześniej utwtorzyć tablicę, pod którą będzie zapisana wiadomość. Więcej informacji na stronie <a href="http://linux.die.net/man/2/recv">http://linux.die.net/man/2/recv</a>
+Odbieranie wiadomości jest analogiczne. Służy do tego funkcja <i>ssize_t recv(int sockfd, void *msg, int len, int flags);</i>  Neleży wcześniej utwtorzyć tablicę, pod którą będzie zapisana wiadomość. Więcej informacji na stronie <a href="http://linux.die.net/man/2/recv">http://linux.die.net/man/2/recv</a>
 </p>
 <h2>3 Zadania do samodzielnego wykonania</h2>
 <h3>Zadanie 1</h3>
