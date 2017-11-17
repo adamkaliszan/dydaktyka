@@ -38,16 +38,16 @@ char pokaz_pole(ruch_t pole)
   char rezultat;
   switch (pole)
   {
-    KOLKO:
+    case KOLKO:
       rezultat = 'O';
     break;
 
-    KRZYZYK:
+    case KRZYZYK:
       rezultat = 'X';
     break;
 
     default:
-      rezultat = ' ';
+      rezultat = '-';
     break;
   }
   return rezultat;
@@ -78,7 +78,7 @@ int zaznacz_ruch(plansza_t *plansza, gracz_t gracz, int nrWiersza, int nrKolumny
   nrWiersza--;
   nrKolumny--;
   int nrPola = 3*nrWiersza + nrKolumny;
-  zaznacz_ruch_n(plansza, gracz, nrPola);
+  return zaznacz_ruch_n(plansza, gracz, nrPola);
 }
 
 
