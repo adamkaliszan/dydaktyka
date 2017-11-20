@@ -81,6 +81,18 @@ $geshi = new GeSHi($source, $language);
 echo $geshi->parseCode();
 ?>
 </p>
+<h2>Kod dla klienta TCP</h2>
+<p>
+Plik z zaimplementowaną grą: <a href=rozw2017t/tcpClient.c>tcpClient.c</a>
+</p>
+<p>
+<?php
+$source = file_get_contents(dirname(__FILE__).'/rozw2017t/tcpClient.c');
+$language = 'C++';
+$geshi = new GeSHi($source, $language);
+echo $geshi->parseCode();
+?>
+</p>
 <h2>Przesyłanie wiadomości w formacie TLV</h2>
 <p>
 Wysłanie wiadomości wymaga wygenerowanie odpowiedniej tablicy znaków, a następnie wysyłanie jej za pomocą funkcji send. Każdy bajt w takiej wiadomości ma znaczenie. Podobnie w przypadku odczytu nalezy odpowiednio interpretować każdy ze znaków. MOdyfikacja funkcji do zapisu pociąga za sobą konieczność modyfikacji funkcji do odczytu. Całość można jednak uprościć stosując konstrowersyjne brudne rzutowanie.
@@ -103,7 +115,16 @@ Każda wiadomość ma taki sam nagłówek: Typ wiadomości, długość danych. W
  <li>Problem endianów pozostaje nierozwiązany. W przypadku typów zapisanych na więcej niż 1 bajcie powinna być wywoływany funkcje typu htons, ntohs, htonl, ntohl. Zatem przed zapisem 16 (32) bitwego pola dane do zapisu powinny być konwertowane za pomocą funkcji htons(htonl). Analogicznie w przypadku odczytu dane należy przekonwertować przy pomocy funkcji ntohs(ntohl).</li>  
 </ol>
 </p>
+<p>
+Plik z przykładową implementacją: <a href=rozw2017t/wiadomosc.c>wiadomosc.c</a>
+<?php
+$source = file_get_contents(dirname(__FILE__).'/rozw2017t/wiadomosc.c');
+$language = 'C++';
+$geshi = new GeSHi($source, $language);
+echo $geshi->parseCode();
+?>
 
+</p>
 
 
 
