@@ -310,7 +310,7 @@ Zmodyfikuj program napisany w zadaniu 1. Zastosuj tam zmienne warunkowe. Porówn
 ./zadanie3 & top
 </pre
 <h3>Podpowiedź</h3>
-<p>Zadanie najłatiwej rozwiązać w nastepujący sposób. Jako punkt wyjścia przyjmijmy kod podany na początku instrukcji, w którym są funkcje  czytaj i czytaj kryt. Do czytaj</p>
+<p>Zadanie najłatwiej rozwiązać w nastepujący sposób. Jako punkt wyjścia przyjmijmy kod podany na początku instrukcji, w którym są funkcje  czytaj i czytaj kryt. Do czytaj</p>
 
 <h2>Rozwiązania</h2>
 Rozwiązania i podpowiedzi z poprzednich zajęć.
