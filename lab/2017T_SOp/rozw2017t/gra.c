@@ -2,6 +2,8 @@
 #include <stdint.h>
 #include <string.h>
 
+#define BOT 1
+
 typedef enum
 {
   BRAK    = 0,
@@ -81,8 +83,6 @@ int zaznacz_ruch(plansza_t *plansza, gracz_t gracz, int nrWiersza, int nrKolumny
   return zaznacz_ruch_n(plansza, gracz, nrPola);
 }
 
-
-
 int usun_ruch_n(plansza_t *plansza, int nrPola)
 {
   if (plansza->ruchy[nrPola] == BRAK)
@@ -145,6 +145,55 @@ rezultat_t rezultat_gry(plansza_t *plansza)
   return REMIS;
 }
 
+int ocen_rezultat(gracz_t gracz, rezultat_t rezultat)
+{
+  if (rezultat == REMIS) return 0;
+
+  if (((gracz == G_KOLKO) && (rezultat == WYGRYWA_KOLKO)) || ((gracz == G_KRZYZYK) && (WYGRYWA_KRZYZYK)))
+    return 1;
+
+  return -1;
+}
+
+/**
+ * @return -1 przegrana, 0 remis, 1 wygrana
+ */
+int wykonaj_ruch(plansza_t *plansza, gracz_t gracz, int *nrPola)
+{
+  int najlRuch = -1;
+  int najlRuchPkt = -2;
+
+  int tempWynik;
+  for (int i=0; i<9; i++)
+  {
+    if (zaznacz_ruch_n(plansza, gracz, i) == 0) continue;
+    
+    rezultat_t tmpRez = rezultat_gry(plansza);
+    if (tmpRez != NIEROZSTRZYGNIETA)
+    {
+      tempWynik = ocen_rezultat(gracz, tmpRez);
+    }
+    else
+    {
+      gracz_t przeciwnik = gracz;
+      zmien_gracza(&przeciwnik);
+      tempWynik = (-1) * wykonaj_ruch(plansza, przeciwnik, NULL);
+    }
+    if (tempWynik > najlRuchPkt)
+    {
+      najlRuchPkt = tempWynik;
+      najlRuch = i;
+    }
+    usun_ruch_n(plansza, i);
+  }
+
+  if (nrPola != NULL)
+  {
+    *nrPola = najlRuch;
+  }
+  return najlRuchPkt;
+}
+
 int main()
 {
   plansza_t mojaPlansza;
@@ -162,8 +211,20 @@ int main()
     scanf("%d", &nrKolumny);
     if (zaznacz_ruch(&mojaPlansza, aktGracz, nrWiersza, nrKolumny) == 0)
       continue;
+
     zmien_gracza(&aktGracz);
     pokaz_plansze(&mojaPlansza);
+
+#ifdef BOT
+    if (rezultat_gry(&mojaPlansza) != NIEROZSTRZYGNIETA)
+      break;
+
+    int n = -1;
+    wykonaj_ruch(&mojaPlansza, aktGracz, &n);
+    zaznacz_ruch_n(&mojaPlansza, aktGracz, n);
+    zmien_gracza(&aktGracz);   
+    pokaz_plansze(&mojaPlansza);
+#endif /*BOT*/
   } 
   printf("Koniec gry, rezultat");
   //TODO dopisać odpowiedni komunikat
@@ -171,3 +232,4 @@ int main()
 
   return 0;
 }
+
