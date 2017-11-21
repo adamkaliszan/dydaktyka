@@ -42,7 +42,7 @@ struct wiadomosc
     } ruch;
   } dane;
 
-};
+}  __attribute__ ((packed));
 
 uint8_t bufor[256];
 
