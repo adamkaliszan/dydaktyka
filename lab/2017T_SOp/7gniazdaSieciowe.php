@@ -303,7 +303,8 @@ void *funClSession(void *arg)
     buf = malloc(1500);
     do
     {
-        memset(buf, 0, 1500);
+        //TODO zadbać o to by wątek nie nadpisał tej wiadomości, zanim odbierze ją konsument
+        //memset(buf, 0, 1500);
         msgLen = recv(connections[conIdx].fd, buf, 1500, 0);
         IPCbuffer.messages[IPCbuffer.writeIdx].length = msgLen;
         IPCbuffer.messages[IPCbuffer.writeIdx].msg = buf;
@@ -397,6 +398,7 @@ int main()
 
             if (connections[i].notEmpty == 0)
             {
+                //UWAGA !!! Ten fragment kodu napisany jest niezgodnie z regułami sztuki
                 if (pthread_create(&connections[i].proces, NULL, funClSession,  &i) != 0)
                 {
                     perror("Can\'t create new thread");
@@ -426,8 +428,8 @@ echo $geshi->parseCode();
 ?>
 <h4>Uzupełnij kod</h4>
 <ol>
- <li>Dopisz kod, który przekazuje wiadomość na pozostałe połączenia</li>
- <li>Do obsługi połączenia zastosuj 2 wątki. Wątek pierwszy (odpowiednik producenta) odbiera dane z gniazda i wysyła je do bufora. Wątek drugi odbiera dane z bufora i rozsyła ja na pozostałe połączenia</li>
+ <li>Napraw niepoprawny kod: W celu przekazania do wątku deskryptora pliku (zmiennej typu int) należy dynamicznie utworzyć taką zmeinną, a następnie jako argument du fukncji pthread_create przekazać do niej wskaźnik. Zamieszczony przykład został napisany niezgodnie z regułami sztuki.</li>
+ <li>Zabezpiecz wiadomości przekazywane za pomocą referencji. Aktualnie bufor zawiera wskaźniki do pamięci, gdzie zapisane są wiadomości. Wątek producenta (obsługujący połączenie TCP) może pod tym adresem zapisać kolejną wiadomość, zanim konsument ją odczyta. Rozwiąż ten problem za pomocą semaforów i zmiennej warunkowej albo przed zapisem każdej z wiadomości alokuj nowy obszar pamięci. W przypadku drugiego wariantu konsument musi zwalniać pamięć.</li>
 </ol>
 
 <h2>5 Bibliografia</h2>
