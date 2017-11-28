@@ -49,11 +49,11 @@ make program
 <h3>Zadanie 2 - miganie diodami</h3>
 <p>
 Otwórz projekt w środowisku Code::Blocks. W tym celu uruchom program, a następnie otwórz projekt.
-<img src="http://adam.kaliszan.yum.pl/lab/2015Z_SOp/codeblocks.png"></img>
+<img src="codeblocks.png"></img>
 </p>
 <p>
 Zmodyfikuj funkcje <b>vDioda</b> z pliku <b>main.c</b>. Wykorzystaj do funkcję zdefiniowaną w pliku <b>hardware.h</b>
-<img src="http://adam.kaliszan.yum.pl/lab/2015Z_SOp/codeblocks2.png"></img>
+<img src="codeblocks2.png"></img>
 <?php
 $source = '
 #ifndef HARDWARE_H
