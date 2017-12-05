@@ -235,15 +235,15 @@ static void prvCoRoutineFlashWorkTask( xCoRoutineHandle xHandle, unsigned portBA
 <p>
 Program można udoskonalić:
  <ul>
-   <li>dodając opcję wyłączania diody, jeśli przycisk jest wciśnięty przez dłuższy czas; Konieczna jest wtedy implementacja automatu stanu przycisku,</li>
-     <li>dodając kolejną korutynę, która obsługuje komunikację przez magistralę RS485; Korutyna ta po odebraniu odpowiedniego rozkazu może również umieszczać wiadomość w buforze, by zapalić diodę na określony czas.</li>
-      </ul>
-      </p>
-      <br><img src="http://adam.kaliszan.yum.pl/wyklady/LabSop/korutynyZad6full.png"></img>
+  <li>dodając opcję wyłączania diody, jeśli przycisk jest wciśnięty przez dłuższy czas; Konieczna jest wtedy implementacja automatu stanu przycisku,</li>
+  <li>dodając kolejną korutynę, która obsługuje komunikację przez magistralę RS485; Korutyna ta po odebraniu odpowiedniego rozkazu może również umieszczać wiadomość w buforze, by zapalić diodę na określony czas.</li>
+ </ul>
+</p>
+<br><img src="http://adam.kaliszan.yum.pl/wyklady/LabSop/korutynyZad6full.png"></img>
 
 
 <h3>Literatura</h3>
 <ul>
  <li>Dokumentacja systemu FreeRtos http://www.freertos.org/</li>
- </ul>
+</ul>
 
