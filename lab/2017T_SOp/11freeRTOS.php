@@ -38,7 +38,7 @@ include_once '../../class.geshi.php';
   <h3>Zadanie 2 - wprowadzenie</h3>
   <p>
   Rozważ algorytm programu, działa w następujący sposób.
-  <onl>
+  <ol>
    <li>W programie są 4 korutyny, które zapalają diodę na określony czas, a następnie gaszą. 4 korutyny zostały utworzone w zadaniu 1, a następnie w zadaniu 6 zostaną zmodyfikowane.</li>
     <li>Każda korutyna ma osobny bufor i oczekuje na odpowiednią wiadomość, która określa ile czasu ma być zapalona dioda. W zadaniu 3 zostanie zaprojektowany format wiadomości. Kolejki zostaną utworzone w zadaniu 4.</li>
      <li>Istnieje korutyna, która sprawdza stan klawisza i jeśli klawisz jest wciśnięty, to wysyła wiadomość do odpowiedniego bufora, by zapalić na określony czas diodę. Korutyna ta zostanie utworzona w zadaniu 5.</li>
