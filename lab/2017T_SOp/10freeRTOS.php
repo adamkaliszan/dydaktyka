@@ -5,7 +5,7 @@ include_once '../../class.geshi.php';
 <meta http-equiv="Content-Type" content="text/html; charset=utf8">
 <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
-<title>Zajęcia laboratoryjne nr 4 z przedmiotu Systemy Operacyjne System FreeRtos i korutyny</title>
+<title>Zajęcia laboratoryjne nr 4 z przedmiotu Systemy Operacyjne System FreeRTOS i korutyny</title>
 </head>
 <body>
 <h3>Zakres materiału</h3>
@@ -15,9 +15,9 @@ include_once '../../class.geshi.php';
  <li>Programowanie w C: pętle, break, makra</li>
 </ul>
 </p>
-<h3>FreeRtos Api</h3>
+<h3>FreeRTOS Api</h3>
 <p>
-Przed rozpoczęciem zajęć należy zapoznać się z API systemu FreeRtos. W instrukcji zostały zamieszczony przykłady z użyciem wszystkich wymaganych makr i funkcji.
+Przed rozpoczęciem zajęć należy zapoznać się z API systemu FreeRTOS. W instrukcji zostały zamieszczony przykłady z użyciem wszystkich wymaganych makr i funkcji.
 </p>
 <h3>Zadanie 1 - szybki start</h3>
 <p>
@@ -130,11 +130,11 @@ echo $geshi->parseCode();
 </p>
 <h3>Zadanie 3</h3>
 <p>
-Dadaj 2 kolejne korutyny, tak by była obsługa 4 diod
+Dadaj 2 kolejne korutyny, tak by była obsługa 4 diód
 </p>
 <h3>Zadanie 4</h3>
 <p>
-Dodaj globalne (lub statyczne) tablicę 4-ro elementowe. Pierwsza tablica określa, jak długo ma być zapalona odpowiednia dioda, a druga jak długo ma być zgaszona. Następnie zmodyfikuj funkcję <b>vDioda</b> tak by każda dioda migała z osobną częstotliwością i z innym wypełnieniem.
+Dodaj globalne (lub statyczne) tablicę 4-ro elementowe. Pierwsza tablica określa, jak długo ma być zapalona odpowiednia dioda, a druga jak długo ma być zgaszona. Następnie zmodyfikuj funkcję <b>vDioda</b> tak, by każda dioda migała z osobną częstotliwością i z innym wypełnieniem.
 <p>
 <h3>Zadanie 5</h3>
 <p>
@@ -142,6 +142,6 @@ Dodaj globalne (lub statyczne) tablicę 4-ro elementowe. Pierwsza tablica okreś
 
 <h3>Literatura</h3>
 <ul>
- <li>Dokumentacja systemu FreeRtos http://www.freertos.org/</li>
+ <li>Dokumentacja systemu FreeRTOS http://www.freertos.org/</li>
 </ul>
 

@@ -30,7 +30,7 @@ touch helloWorld.c
 </p>
 <h4>Edycja pliku</h4>
 <p>
-W systemie Linux dostępnych jest wiele edytorów: vi, mcedit, pico. Dla laika korzystającego z konsoli najłatwiej jest edytować plik w programie <b>mcedit</b> lub <b>pico</b>. Program pico i vi jest zwykle zainstalowany w najpopularniejszych dystrybucjach systemu Linux. W przypadku wersji minimalistycznej dostępny jest zwykle program vi. Za pomocą konsoli można otworzyć również plik w programie graficznym. Najlepiej jest to zrobić w tle, tak by nie blokować dostępu do komsoli.
+W systemie Linux dostępnych jest wiele edytorów: vi, mcedit, pico. Dla laika korzystającego z konsoli najłatwiej jest edytować plik w programie <b>mcedit</b> lub <b>pico</b>. Program pico i vi jest zwykle zainstalowany w najpopularniejszych dystrybucjach systemu Linux. W przypadku wersji minimalistycznej dostępny jest zwykle program vi. Za pomocą konsoli można otworzyć również plik w programie graficznym. Najlepiej jest to zrobić w tle tak, by nie blokować dostępu do komsoli.
 </p>
 Otwarcie pliku za pomocą edytora działającego w trybie tekstowym:
 <pre>
@@ -173,8 +173,8 @@ Podstawowe operacje obsługi katalogów można realizować z wykorzystaniem nast
  </ul></li>
 <li><b>ls</b> [przełączniki] [nazwa_katalogu] - wyświetlenie zawartości katalogu, np.:
  <ul> 
-  <li>ls - wyświetla zawartośćo	 katalogu bieżącego;</li> 
-  <li>ls -a - wyświetla zawartość katalogu bieżącego uwzględniając wszystkie pliki - tzn. także te, których nazwa zaczyna się od znaku "." (umownie są to pliki ukryte, tzw dotted files);</li> 
+  <li>ls - wyświetla zawartość katalogu bieżącego;</li> 
+  <li>ls -a - wyświetla zawartość katalogu bieżącego uwzględniając wszystkie pliki - tzn. także te, których nazwa zaczyna się od znaku "." (umownie są to pliki ukryte, tzw. dotted files);</li> 
   <li>ls -al - wyświetla wszystkie pliki z katalogu bieżącego z uwzględnieniem tzw. "długiego formatu", czyli podając typ każdego obiektu w katalogu:
    <ul>
     <li>pierwszy znak:
@@ -248,12 +248,12 @@ Przykłady poleceń z wykorzystaniem wzorców uogólniających:
  <li>rm ./[0-9]* - usunięcie wszystkich plików z katalogu domowego, których nazwa rozpoczyna się od cyfry.</li>
 </ul>
 <h3>Wyszukiwanie plików</h3>
-<p>Jak już wspomniano pliki w systemach UNIX są używane do przechowywania danych użytkowników oraz reprezentują m. in. niektóre urządzenia systemowe, istotne jest zatem sprawne wyszukiwanie i lokalizowanie plików w strukturze katalogów. Zadanie to można zrealizować na kilka sposobów, w zależności od charakteru poszukiwanego pliku i kryteriów wyszukiwania. Lokalizacji plików wykonywalnych - programów - można dokonać z wykorzystaniem polecenia: whereis [przełączniki] lista_programów
+<p>Jak już wspomniano pliki w systemach UNIX są używane do przechowywania danych użytkowników oraz reprezentują m.in. niektóre urządzenia systemowe, istotne jest zatem sprawne wyszukiwanie i lokalizowanie plików w strukturze katalogów. Zadanie to można zrealizować na kilka sposobów, w zależności od charakteru poszukiwanego pliku i kryteriów wyszukiwania. Lokalizacji plików wykonywalnych - programów - można dokonać z wykorzystaniem polecenia: <b>whereis</b> [przełączniki] lista_programów
 <br>Np.: whereis ls
 </p>
 <p>Do wyszukiwania plików można także zastosować polecenie: 
-<br>locate [przełączniki] wzorzec
-<br>Program ten wyszukuje pliki, podając listę plików ze śćieżkami, których nazwa zostanie dopasowana do podanego jako argument wywołania wzorca. Program locate zwraca wyniki niemal natychmiast, ponieważ wyszukiwanie faktycznie odbywa się na przygotowanej wcześniej bazie plików (nie jest przeszukiwana cała struktura katalogów). Baza ta (indeks nazw plików), przeważnie jest aktualizowana raz na dobę - oznacza to, że wynik może nie uwzględniać zmian w systemie plików i katalogów, jakie zostały wykonane po ostatniej aktualizacji spisu (aktualizacji może zawsze dokonać administrator systemu wykorzystując polecenie updatedb). Wzorzec zapytania można budować z wykorzystaniem operatorów uogólniających - wówczas należy umieścić wzorzec w cudzysłowie, aby nie został on rozwinięty przez interpreter poleceń.
+<br><b>locate</b> [przełączniki] wzorzec
+<br>Program ten wyszukuje pliki, podając listę plików ze ścieżkami, których nazwa zostanie dopasowana do podanego jako argument wywołania wzorca. Program locate zwraca wyniki niemal natychmiast, ponieważ wyszukiwanie faktycznie odbywa się na przygotowanej wcześniej bazie plików (nie jest przeszukiwana cała struktura katalogów). Baza ta (indeks nazw plików), przeważnie jest aktualizowana raz na dobę - oznacza to, że wynik może nie uwzględniać zmian w systemie plików i katalogów, jakie zostały wykonane po ostatniej aktualizacji spisu (aktualizacji może zawsze dokonać administrator systemu wykorzystując polecenie updatedb). Wzorzec zapytania można budować z wykorzystaniem operatorów uogólniających - wówczas należy umieścić wzorzec w cudzysłowie, aby nie został on rozwinięty przez interpreter poleceń.
 </p>
 <h3>Prawa dostępu</h3>
 <p>
@@ -297,7 +297,7 @@ Tak więc, prawa zapisane numerycznie dla pliku pik1.txt z powyższego przykład
 </ul> 
 Operowanie prawami dostępu i określaniem prawa własności jest możliwe dzięki następującym poleceniom systemowym:
 <ul>
- <li>chmod [przełączniki] uprawnienia nazwa_pliku_lub_katalogu - zmiana praw dostępu wskazanych pierwszym argumentem wywołania dla pliku lub katalogu wskazanym drugim argumentem wywołania; w specyfikacji należy, zatem wskazać (i) dla kogo mają być zmienione prawe (u - właściciel, g - użytkownicy z tej samej grupy, o - inni użytkownicy, a - wszyscy), (ii) rodzaj zmiany (+ - dodanie praw, - - odjęcie praw, = - ustalenie praw) oraz (iii) prawa. Oto przykładowe zlecenia z wykorzystaniem polecenia chmod:
+ <li><b>chmod</b> [przełączniki] uprawnienia nazwa_pliku_lub_katalogu - zmiana praw dostępu wskazanych pierwszym argumentem wywołania dla pliku lub katalogu wskazanym drugim argumentem wywołania; w specyfikacji należy, zatem wskazać (i) dla kogo mają być zmienione prawe (u - właściciel, g - użytkownicy z tej samej grupy, o - inni użytkownicy, a - wszyscy), (ii) rodzaj zmiany (+ - dodanie praw, - - odjęcie praw, = - ustalenie praw) oraz (iii) prawa. Oto przykładowe zlecenia z wykorzystaniem polecenia chmod:
   <ul>
    <li>chmod u+w plik.txt - dodaje prawo odczytu dla właściciela do pliku plik.txt;</li>
    <li>chmod go-x plik.txt - usuwa prawo wykonywania dla użytkowników z tej samej grupy i innych do pliku plik.txt;</li> 
@@ -309,8 +309,8 @@ Polecenie chmod umożliwia także określanie praw dostępu w postaci numeryczne
    <li>chmod 742 - ustawia prawa odczytu, zapisu i wykonywania właścicielowi, prawo odczytu użytkownikom z tej samej grupy oraz prawo zapisu innym użytkownikom do pliku plik.txt;</li>
   </ul>
  </li>
- <li>chown [przełączniki] nazwa_nowego_właściciela nazwa_pliku_lub_katalogu - zmiana właściciela pliku lub katalogu. Ze względu na nieodwracalność·	 ewentualnych zmian, polecenie to jest często zarezerwowane dla administratora systemu.</li>
- <li>chgrp [przełączniki] nazwa_nowej_grupy nazwa_pliku_lub_katalogu - zmienia grupę, do której należy wskazany plik lub katalog. Podobnie jak polecenie chown, i to polecenie najczęściej jest zarezerwowane dla administratora.</li>
+ <li><b>chown</b> [przełączniki] nazwa_nowego_właściciela nazwa_pliku_lub_katalogu - zmiana właściciela pliku lub katalogu. Ze względu na nieodwracalność·	 ewentualnych zmian, polecenie to jest często zarezerwowane dla administratora systemu.</li>
+ <li><b>chgrp</b> [przełączniki] nazwa_nowej_grupy nazwa_pliku_lub_katalogu - zmienia grupę, do której należy wskazany plik lub katalog. Podobnie jak polecenie chown, i to polecenie najczęściej jest zarezerwowane dla administratora.</li>
 </ul>
 </p>
 <h3>Dowiązania</h3>
@@ -319,7 +319,7 @@ W systemach UNIX informacje o plikach na dysku przechowywane są w strukturach, 
 Istnieją dwa rodzaje dowiązań: tzw. dowiązania twarde (ang. hard links) oraz tzw. dowiązania miękkie lub symboliczne (ang. soft or symbolic links). Dowiązania symboliczne mogą także dotyczyć katalogów, oraz plików w innych systemach plików - informacja o nich dostępna jest dzięki omówionemu już poleceniu ls -l. Wszystkie dowiązania można przetwarzać dokładnie tak samo jak pliki zwykłe, w szczególności mogą także być usunięte poleceniem rm. 
 Tworzenie dowiązań jest możliwe dzięki poleceniu: 
 <br>
-ln [przełączniki] źródło nazwa_dowiązania
+<b>ln</b> [przełączniki] źródło nazwa_dowiązania
 <br>
 pierwszy argument musi wskazywać na istniejący plik (lub katalog w przypadku dowiązań symbolicznych), do którego tworzone jest dowiązanie, a drugim argumentem jest nowa nazwa dla tego pliku. Utworzenie dowiązania symbolicznego wymaga zastosowania przełącznika -s. Przykładowe wywołania zlecenia utworzenia dowiązań: 
 <ul>

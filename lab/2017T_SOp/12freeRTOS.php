@@ -1,4 +1,4 @@
-<?php
+1<?php
 include_once '../../class.geshi.php';
 ?>
 
@@ -29,7 +29,7 @@ Zapoznaj się z następującymi funkcjami/makrami (API) systemu FreeRTOS. Dwie o
 <h4>Obsługa magistrali i portu szeregowego w Miktorkontrolerze AtMega</h4>
 <p>
 Moduły zestawu dydaktycznego komunikują się za pośrednictwem magistrali RS 485. Jest to magistrala typu half duplex składająca się z jednego toru transmisyjnego. W danej chwili tylko jeden nadajnik może być do niej podłączony. Moduł wykonawczy załącza nadajnik wystawiając stan wysoki na wyjściu 3 portu D. Odbiornik jest włączany natomiast wystawiając stan 0 na wyjściu 2 portu D. 
-Do załączenia nadajnika i odłączeniu odbiornika służy makro <b>TxStart</b>, natomiast do wyłączenia nadajnika i włączenia odbiornika służy makro<b>TxStop</b>.
+Do załączenia nadajnika i odłączeniu odbiornika służy makro <b>TxStart</b>, natomiast do wyłączenia nadajnika i włączenia odbiornika służy makro <b>TxStop</b>.
 </p>
 <p>
 Mikrokontroler wysyła i odbiera dane z magistrali RS 485 za pomocą portu szeregowego. Port ten należy na samym początku odpowiednio skonfigurować, ustawiając odpowiednią szybkość transmisji (115200 b/s) liczbę bitów w znaku (8) oraz bity stopu i parzystości. Parametry te ustawiane są w funkcji <b>xSerialPortInitMinimal</b>. Funkcja ta dodatkowo tworzy nadawczą i odbiorczą kolejkę (bufor). Rozmiar bufora zostaje określony za pomocą parametru przekazanego do funkcji.
@@ -61,7 +61,7 @@ Otwórz projekt. Zapoznaj się z nim. Projekt składa się z 3 plików z kodem. 
 </p>
 <p>
 Zmodyfikuj otwarty projekt, tak by był zgony z architekturą przedstawioną na rysunku.
-<br><img src="http://adam.kaliszan.yum.pl/lab/2011SSW/korutynySterAstabilny.png"></img>
+<br><img src="http://adam.kaliszan.yum.pl/lab/2011SSW/korutynySterAstabilny.png"></img><br>
 Program powinien realizować funkcję takie same jak program napisany na poprzednich zajęciach. By osiągnąć cel należy zmodyfikować następujące funkcje:
 <ul>
  <li>vKlawisze</li>
@@ -280,7 +280,7 @@ $source = '
  *
  * To przerwanie wywoływane jest wtedy, gdy w sprzętowym buforze nadawczym
  * portu szeregowego jest miejsce na kolejny bajt.
- * Obsługa przerwania polega na podbraniu kolejnego bajtu z bufora cyklicznego
+ * Obsługa przerwania polega na pobraniu kolejnego bajtu z bufora cyklicznego
  * i umieszczeniu go w sprzętowym buforze nadawczym portu szeregowego.
  */
 ISR(USART_UDRE_vect)
@@ -363,9 +363,9 @@ W programie zostaje utworzone jedno zadanie do obsługi interpretera poleceń (f
 </p>
 Celem zadania jest dodanie nowego polecenia, które wysyła na magistralę odpowienią wiadomość (teraz jest to znak) by zapalić lub zgasić diodę.  
 <h4>Zadanie 6.1</h4>
-<p>Dodaj nowe polecenie do interpretera poleceń dodaj nowe polecenie. W tym celu otwórz projekt <b>Cli</b>. Przestaw zworki na programatorze tak, by programował główny sterownik. Podłącz za pomocą drugiego kabla USB sterownik.</p>
+<p>Dodaj nowe polecenie do interpretera poleceń. W tym celu otwórz projekt <b>Cli</b>. Przestaw zworki na programatorze tak, by programował główny sterownik. Podłącz za pomocą drugiego kabla USB sterownik.</p>
 <p>
-Otwórz plik vty.c. Zapoznaj się z jego zawartością w i analogiczny sposób dodaj nowe polecenie o nazwie "hello", które wypisze powitanie.
+Otwórz plik vty.c. Zapoznaj się z jego zawartością i w analogiczny sposób dodaj nowe polecenie o nazwie "hello", które wypisze powitanie.
 </p>
 <p>
 Podpowiedź, konieczna będzie również modyfikacja plików vty_en.h i vty_pl.h.
@@ -414,7 +414,7 @@ Wiadomość protokołu składa się z następujących pól:
 </ol>
 </p>
 <p>
-W katalogu FreeRtos/projektyAdam są projekty:ModWykonawczy oraz SterownikGlowny, w którym został zaimplementowany taki protokół.
+W katalogu FreeRtos/projektyAdam są projekty: ModWykonawczy oraz SterownikGlowny, w którym został zaimplementowany taki protokół.
 Na potrzeby naszego zadania najłatwiej jest modyfikować oba projekty, tak by moduł wykonawczy działał jak sterownik 4 źródeł świateł, które zapalane są na określony czas.
 </p>
 
