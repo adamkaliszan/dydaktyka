@@ -5,7 +5,7 @@ include_once '../../class.geshi.php';
 <meta http-equiv="Content-Type" content="text/html; charset=utf8">
 <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
-<title>Zajęcia laboratoryjne nr 5 z przedmiotu Systemy Operacyjne System FreeRtos i korutyny</title>
+<title>Zajęcia laboratoryjne nr 5 z przedmiotu Systemy Operacyjne System FreeRTOS i korutyny</title>
 </head>
 <body>
 <h3>Zakres materiału</h3>
@@ -15,13 +15,13 @@ include_once '../../class.geshi.php';
  <li>Programowanie w C: pętle, break, makra</li>
 </ul>
 </p>
-<h3>FreeRtos Api</h3>
+<h3>FreeRTOS Api</h3>
 <p>
-Przed rozpoczęciem zajęć należy zapoznać się z API systemu FreeRtos. W instrukcji zostały zamieszczony przykłady z użyciem wszystkich wymaganych makr i funkcji.
+Przed rozpoczęciem zajęć należy zapoznać się z API systemu FreeRTOS. W instrukcji zostały zamieszczony przykłady z użyciem wszystkich wymaganych makr i funkcji.
 </p>
 <h3>Zadanie 1 - przypomnienie</h3>
 <p>
-Pobierz projekt z repozytorium. W tym celu utwórz (najlepiej za pomocą konsoli) katalog, w którym będzie przechowywany projekt, np tmp. Nastepnie przejdź do tego katalogu i wpisz:
+Pobierz projekt z repozytorium. W tym celu utwórz (najlepiej za pomocą konsoli) katalog, w którym będzie przechowywany projekt, np. tmp. Następnie przejdź do tego katalogu i wpisz:
 <pre>
 svn co http://akme.yum.pl/FreeRtos
 </pre>
@@ -244,6 +244,6 @@ Program można udoskonalić:
 
 <h3>Literatura</h3>
 <ul>
- <li>Dokumentacja systemu FreeRtos http://www.freertos.org/</li>
+ <li>Dokumentacja systemu FreeRTOS http://www.freertos.org/</li>
 </ul>
 
