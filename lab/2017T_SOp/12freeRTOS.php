@@ -1,4 +1,4 @@
-1<?php
+<?php
 include_once '../../class.geshi.php';
 ?>
 
@@ -6,7 +6,7 @@ include_once '../../class.geshi.php';
 <meta http-equiv="Content-Type" content="text/html; charset=utf8">
 <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
 <meta name="ProgId" content="FrontPage.Editor.Document">
-<title>Zajęcia labaratoryjne nr 2 z przedmiotu Sieciowe Systemy Wbudowane - FreeRtos i bosługa magistrali RS485</title>
+<title>Zajęcia laboratoryjne nr 2 z przedmiotu Sieciowe Systemy Wbudowane - FreeRTOS i obsługa magistrali RS485</title>
 </head>
 <body>
 <h3>Wprowadzenie</h3>
@@ -26,7 +26,7 @@ Zapoznaj się z następującymi funkcjami/makrami (API) systemu FreeRTOS. Dwie o
  <li><a href="http://www.freertos.org/crrecisr.html"   >crQUEUE_RECEIVE_FROM_ISR</a></li>
 </ul>
 </p>
-<h4>Obsługa magistrali i portu szeregowego w Miktorkontrolerze AtMega</h4>
+<h4>Obsługa magistrali i portu szeregowego w Miktorkontrolerze Atmega</h4>
 <p>
 Moduły zestawu dydaktycznego komunikują się za pośrednictwem magistrali RS 485. Jest to magistrala typu half duplex składająca się z jednego toru transmisyjnego. W danej chwili tylko jeden nadajnik może być do niej podłączony. Moduł wykonawczy załącza nadajnik wystawiając stan wysoki na wyjściu 3 portu D. Odbiornik jest włączany natomiast wystawiając stan 0 na wyjściu 2 portu D. 
 Do załączenia nadajnika i odłączeniu odbiornika służy makro <b>TxStart</b>, natomiast do wyłączenia nadajnika i włączenia odbiornika służy makro <b>TxStop</b>.
@@ -35,7 +35,7 @@ Do załączenia nadajnika i odłączeniu odbiornika służy makro <b>TxStart</b>
 Mikrokontroler wysyła i odbiera dane z magistrali RS 485 za pomocą portu szeregowego. Port ten należy na samym początku odpowiednio skonfigurować, ustawiając odpowiednią szybkość transmisji (115200 b/s) liczbę bitów w znaku (8) oraz bity stopu i parzystości. Parametry te ustawiane są w funkcji <b>xSerialPortInitMinimal</b>. Funkcja ta dodatkowo tworzy nadawczą i odbiorczą kolejkę (bufor). Rozmiar bufora zostaje określony za pomocą parametru przekazanego do funkcji.
 </p>
 <p>
-Oprócz kolejki pośredniczącej w przesyłaniu znaków przez port szeregowy, mikrokontrolery AtMega mają 3 bajtowy sprzętowy bufor. Podczas transmisji przez port szeregowy, można umieścić 2 kolejne bajty w tej kolejce. W tym celu należy zapisać wartość jaką chcemy wysłać do rejestru <b>UDR0</b>. W podobny sposób zrealizowany jest odczyt danych. 2 Odczytane znaki mieszczą się w rejestrze UDR0, a trzeci znak może być odczytywany, przed jego zakończeniem należy odczytać coś ze sprzętowego bufora odbiorczego.
+Oprócz kolejki pośredniczącej w przesyłaniu znaków przez port szeregowy, mikrokontrolery Atmega mają 3 bajtowy sprzętowy bufor. Podczas transmisji przez port szeregowy, można umieścić 2 kolejne bajty w tej kolejce. W tym celu należy zapisać wartość jaką chcemy wysłać do rejestru <b>UDR0</b>. W podobny sposób zrealizowany jest odczyt danych. Dwa odczytane znaki mieszczą się w rejestrze UDR0, a trzeci znak może być odczytywany, przed jego zakończeniem należy odczytać coś ze sprzętowego bufora odbiorczego.
 </p>
 <p>
 Port szeregowy możemy obsługiwać odpytując go lub za pomocą przerwań. W tym celu dodano 3 przerwania:
@@ -314,7 +314,7 @@ $geshi = new GeSHi($source, $language);
 echo $geshi->parseCode();
 ?>
 
-<h3>Zadanie 4 - implementacja korutyny obsługującej magistralę Rs485</h3>
+<h3>Zadanie 4 - implementacja korutyny obsługującej magistralę RS485</h3>
 
 <p>Do komunikacji pomiędzy korutynami wysyłającymi żądanie zapalenia/zgaszenia diody służą kolejki <b>xDiodesOn</b>. Są one zadeklarowane w pliku main.c, jednak funkcja obsługująca przerwania nie odwołuje się do nich bezpośrednio. Wynika to z faktu, że protokół do komunikacji pomiędzy modułami może być skomplikowany. Pomiędzy modułami mogą być przesyłane ramki, w których zawarta jest informacja o diodzie jaką należy zapalić oraz o czasie świecenia diody. Ramki takie mogą dodatkowo zawierać bity kontrolne oraz rozpoczynać się specjalnym znakiem określającym początek ramki.
 </p>
@@ -324,9 +324,9 @@ echo $geshi->parseCode();
 
 <h3>Zadanie 5 - testowanie</h3>
 <p>
-Przed testami odłącz główny sterownik od magistrali Rs485. Główny sterownik może mieć wgrany program, który cyklicznie odpytuje moduły wykonawcze.
+Przed testami odłącz główny sterownik od magistrali RS485. Główny sterownik może mieć wgrany program, który cyklicznie odpytuje moduły wykonawcze.
 </p>
-<p>Wgraj oprogramowanie na moduł wykonawczy, a następnie przełącz zworki tak, by do magistrali Rs485 podłączyć USB komputera. Uruchom program minicom
+<p>Wgraj oprogramowanie na moduł wykonawczy, a następnie przełącz zworki tak, by do magistrali RS485 podłączyć USB komputera. Uruchom program minicom
 <pre>
 minicom -s
 </pre>
@@ -382,7 +382,7 @@ static cliExRes_t zapal(cmdState_t *state)
   nrDiody = cmdlineGetArgInt(1, state);
 </pre>
  </li>
- <li>Wysłać na magistralę Rs485 odpowiednią wiadomość za pomocą funkcji: 
+ <li>Wysłać na magistralę RS485 odpowiednią wiadomość za pomocą funkcji: 
 <pre>
 void    uartRs485SendByte(uint8_t data);</li>
 </pre>
