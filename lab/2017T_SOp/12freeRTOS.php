@@ -26,7 +26,7 @@ Zapoznaj się z następującymi funkcjami/makrami (API) systemu FreeRTOS. Dwie o
  <li><a href="http://www.freertos.org/crrecisr.html"   >crQUEUE_RECEIVE_FROM_ISR</a></li>
 </ul>
 </p>
-<h4>Obsługa magistrali i portu szeregowego w Miktorkontrolerze Atmega</h4>
+<h4>Obsługa magistrali i portu szeregowego w mikrokontrolerze Atmega</h4>
 <p>
 Moduły zestawu dydaktycznego komunikują się za pośrednictwem magistrali RS 485. Jest to magistrala typu half duplex składająca się z jednego toru transmisyjnego. W danej chwili tylko jeden nadajnik może być do niej podłączony. Moduł wykonawczy załącza nadajnik wystawiając stan wysoki na wyjściu 3 portu D. Odbiornik jest włączany natomiast wystawiając stan 0 na wyjściu 2 portu D. 
 Do załączenia nadajnika i odłączeniu odbiornika służy makro <b>TxStart</b>, natomiast do wyłączenia nadajnika i włączenia odbiornika służy makro <b>TxStop</b>.
